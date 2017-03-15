@@ -132,6 +132,57 @@
       <div class="body-wrap">
         
   
+    <article id="post-iOS零碎点" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/11/iOS零碎点/">iOS零碎点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1 按钮的点击事件命名 为 handleXXXTouchEvent</p>
+<p>2 添加子项目 如果无法import文件 查看Build Phases 的header search paths 是否引入了项目</p>
+<p>3 NSObject 一些简单的查询运行时系统信息。这些方法允许对象自省–自我查找。这种方法的例子就是类方法，例如isKindOfClass isMemberOfClass </p>
+<h3 id="4-重点：Runtime"><a href="#4-重点：Runtime" class="headerlink" title="4 重点：Runtime"></a>4 重点：Runtime</h3><p>在oc中，消息不跟方法实现绑定知道运行时。<br>消息传递函数：objc_msgSend<br>消息传递机制的关键在于编译器对每个类和对象的结构的构建，每个类结构包含两个基本元素：指向父类的指针和类调度表。<br>为了加速消息传递过程，在方法被使用时，运行时系统缓存了方法的选择器和地址<br>methodForSelector 是运行时系统提供的而不是OC的特点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">id LenderClass = objc_getClass(&quot;Lender&quot;);</div><div class="line">unsigned int outCount,i;</div><div class="line">objc_property_t  *properties = class_copyPropertyList(LenderClass,&amp;outCount);</div><div class="line">for ( i = 0 ; i &lt; outCount ; i++ )&#123;</div><div class="line">     objc_property_t property = properties[i];</div><div class="line">     fprintf(stdout,&quot;%s %s \ n&quot;,property_getName(property),property_getAttributes(property));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="属性类型字符串"><a href="#属性类型字符串" class="headerlink" title="属性类型字符串"></a>属性类型字符串</h5><p>使用property_getAttributes 这个函数去获得属性的名字和编码字符串，和一些其他的属性。</p>
+<p>字符串以T打头后面跟着编码类型和逗号，结束是以V打头加上返回实例变量的名字。在两者中间以逗号隔开。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/11/iOS零碎点/" class="archive-article-date">
+  	<time datetime="2017-03-11T02:29:13.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-11</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-iOS面试题总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -150,7 +201,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="static理解："><a href="#static理解：" class="headerlink" title="static理解："></a>static理解：</h3>
       
     </div>
     <div class="article-info article-info-index">

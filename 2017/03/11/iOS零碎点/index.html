@@ -4,14 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives | 我的博客</title>
+  <title>iOS零碎点 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="https://coderonepolo.github.io/archives/index.html">
+  <meta name="description" content="1 按钮的点击事件命名 为 handleXXXTouchEvent
+2 添加子项目 如果无法import文件 查看Build Phases 的header search paths 是否引入了项目
+3 NSObject 一些简单的查询运行时系统信息。这些方法允许对象自省–自我查找。这种方法的例子就是类方法，例如isKindOfClass isMemberOfClass 
+4 重点：Runtime在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS零碎点">
+<meta property="og:url" content="https://coderonepolo.github.io/2017/03/11/iOS零碎点/index.html">
 <meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="1 按钮的点击事件命名 为 handleXXXTouchEvent
+2 添加子项目 如果无法import文件 查看Build Phases 的header search paths 是否引入了项目
+3 NSObject 一些简单的查询运行时系统信息。这些方法允许对象自省–自我查找。这种方法的例子就是类方法，例如isKindOfClass isMemberOfClass 
+4 重点：Runtime在">
+<meta property="og:updated_time" content="2017-03-15T11:32:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
+<meta name="twitter:title" content="iOS零碎点">
+<meta name="twitter:description" content="1 按钮的点击事件命名 为 handleXXXTouchEvent
+2 添加子项目 如果无法import文件 查看Build Phases 的header search paths 是否引入了项目
+3 NSObject 一些简单的查询运行时系统信息。这些方法允许对象自省–自我查找。这种方法的例子就是类方法，例如isKindOfClass isMemberOfClass 
+4 重点：Runtime在">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -130,172 +143,85 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-iOS零碎点" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      iOS零碎点
+    </h1>
   
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
+        <p>1 按钮的点击事件命名 为 handleXXXTouchEvent</p>
+<p>2 添加子项目 如果无法import文件 查看Build Phases 的header search paths 是否引入了项目</p>
+<p>3 NSObject 一些简单的查询运行时系统信息。这些方法允许对象自省–自我查找。这种方法的例子就是类方法，例如isKindOfClass isMemberOfClass </p>
+<h3 id="4-重点：Runtime"><a href="#4-重点：Runtime" class="headerlink" title="4 重点：Runtime"></a>4 重点：Runtime</h3><p>在oc中，消息不跟方法实现绑定知道运行时。<br>消息传递函数：objc_msgSend<br>消息传递机制的关键在于编译器对每个类和对象的结构的构建，每个类结构包含两个基本元素：指向父类的指针和类调度表。<br>为了加速消息传递过程，在方法被使用时，运行时系统缓存了方法的选择器和地址<br>methodForSelector 是运行时系统提供的而不是OC的特点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">id LenderClass = objc_getClass(&quot;Lender&quot;);</div><div class="line">unsigned int outCount,i;</div><div class="line">objc_property_t  *properties = class_copyPropertyList(LenderClass,&amp;outCount);</div><div class="line">for ( i = 0 ; i &lt; outCount ; i++ )&#123;</div><div class="line">     objc_property_t property = properties[i];</div><div class="line">     fprintf(stdout,&quot;%s %s \ n&quot;,property_getName(property),property_getAttributes(property));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="属性类型字符串"><a href="#属性类型字符串" class="headerlink" title="属性类型字符串"></a>属性类型字符串</h5><p>使用property_getAttributes 这个函数去获得属性的名字和编码字符串，和一些其他的属性。</p>
+<p>字符串以T打头后面跟着编码类型和逗号，结束是以V打头加上返回实例变量的名字。在两者中间以逗号隔开。</p>
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/11/iOS零碎点/" class="archive-article-date">
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/11/iOS零碎点/" class="archive-article-date">
   	<time datetime="2017-03-11T02:29:13.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-11</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/11/iOS零碎点/">iOS零碎点</a>
-    </h1>
-  
+      
+      
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/02/iOS面试题总结/" class="archive-article-date">
-  	<time datetime="2017-03-02T10:48:42.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/02/iOS面试题总结/">iOS面试题总结</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-面试/">iOS 面试</a></li></ul>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/02/iOS面试题总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS面试题总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/24/Effective-Objective-C-2-0读书笔记/" class="archive-article-date">
-  	<time datetime="2017-02-24T02:29:31.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/Effective-Objective-C-2-0读书笔记/">Effective Objective-C 2.0读书笔记</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/24/vim操作命令/" class="archive-article-date">
-  	<time datetime="2017-02-24T02:01:12.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/vim操作命令/">vim操作命令</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/10/FMDB的使用方法（附Demo/" class="archive-article-date">
-  	<time datetime="2016-10-10T09:01:27.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/10/FMDB的使用方法（附Demo/">FMDB的使用方法（附Demo)</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
       </div>
@@ -318,8 +244,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
