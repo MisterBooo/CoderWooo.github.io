@@ -151,9 +151,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!--editor:吴至波-->
-<p>#一.内存管理的思考方式</p>
-<p>###1.引用计数的思考方式：</p>
-<ul>
+<h1 id="一-内存管理的思考方式"><a href="#一-内存管理的思考方式" class="headerlink" title="一.内存管理的思考方式"></a>一.内存管理的思考方式</h1><h3 id="1-引用计数的思考方式："><a href="#1-引用计数的思考方式：" class="headerlink" title="1.引用计数的思考方式："></a>1.引用计数的思考方式：</h3><ul>
 <li>自己生成的对象，自己持有</li>
 <li>非自己生成的对象，自己也能持有</li>
 <li>不再需要自己持有的对象时释放</li>
@@ -186,12 +184,11 @@
 </tr>
 </tbody>
 </table>
-<p>####2.alloc/retain.release/dealloc 实现<br>GNUstep是Cocoa框架的互换框架。理解了GNUstep源代码也就相当于理解了苹果的Cocoa实现。</p>
+<h4 id="2-alloc-retain-release-dealloc-实现"><a href="#2-alloc-retain-release-dealloc-实现" class="headerlink" title="2.alloc/retain.release/dealloc 实现"></a>2.alloc/retain.release/dealloc 实现</h4><p>GNUstep是Cocoa框架的互换框架。理解了GNUstep源代码也就相当于理解了苹果的Cocoa实现。</p>
 <p>a.通过allocWithZone:类方法调用NSAllocateObject函数分配了对象。</p>
 <p>b.NSAllocateObject函数通过调用NSZoneMalloc函数来分配存放对象所需的内存空间，之后将改内存空间置0，最后返回作为对象而使用的指针。</p>
 <p>c.NSZone:为防止内存碎片化而引入的结构</p>
-<p>#####总结：GNUstep中alloc/retain/release/dealloc 的实现</p>
-<ul>
+<h5 id="总结：GNUstep中alloc-retain-release-dealloc-的实现"><a href="#总结：GNUstep中alloc-retain-release-dealloc-的实现" class="headerlink" title="总结：GNUstep中alloc/retain/release/dealloc 的实现"></a>总结：GNUstep中alloc/retain/release/dealloc 的实现</h5><ul>
 <li>在Objective-C的对象中存有引用计数这一整数值。</li>
 <li>调用alloc或是retain方法后，引用计数值加1</li>
 <li>调用release后，引用计数值减1</li>
@@ -219,15 +216,27 @@
 </tr>
 </tbody>
 </table>
-<p>####3.autorelease理解<br>定义：自动释放，当对象实例超出作用域（相当于变量作用域）时，对象实例的release实例方法被调用。</p>
+<h4 id="3-autorelease理解"><a href="#3-autorelease理解" class="headerlink" title="3.autorelease理解"></a>3.autorelease理解</h4><p>定义：自动释放，当对象实例超出作用域（相当于变量作用域）时，对象实例的release实例方法被调用。</p>
 <ul>
 <li>生成并持有NSAutoreleasePool对象</li>
 <li>调用已分配对象的autorelease实例方法</li>
 <li>废弃NSAutoreleasePool对象</li>
 </ul>
-<p>#####autorelease实现<br>GNUstep的实现       |  苹果的实现<br>———-    |——<br>atuorelease实例方法的本质就是调用NSAutoreleasePool对象的addObject方法| 通过objc4库的runtime/objc-arr.mm 确认autorelease实现 类似</p>
-<p>####4.ARC规则</p>
-<p>#####A.所有权修饰符</p>
+<h5 id="autorelease实现"><a href="#autorelease实现" class="headerlink" title="autorelease实现"></a>autorelease实现</h5><table>
+<thead>
+<tr>
+<th>GNUstep的实现</th>
+<th>苹果的实现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>atuorelease实例方法的本质就是调用NSAutoreleasePool对象的addObject方法</td>
+<td>通过objc4库的runtime/objc-arr.mm 确认autorelease实现 类似</td>
+</tr>
+</tbody>
+</table>
+<h4 id="4-ARC规则"><a href="#4-ARC规则" class="headerlink" title="4.ARC规则"></a>4.ARC规则</h4><p>#####A.所有权修饰符</p>
 <ul>
 <li>__strong 修饰符</li>
 <li>__weak 修饰符</li>
@@ -250,8 +259,7 @@
 <p>NSRunLoop等实现不论ARC有效还是无效，均能够随时释放注册到autoreleasepool中的对象</p>
 <p>autoreleasepool 范围以块级源代码表示，提高了程序的可读性，所以今后在ARC无效时也推荐使用@autoreleasepool块。</p>
 <hr>
-<p>#####B.具体的ARC规则</p>
-<ul>
+<h5 id="B-具体的ARC规则"><a href="#B-具体的ARC规则" class="headerlink" title="B.具体的ARC规则"></a>B.具体的ARC规则</h5><ul>
 <li>不能使用retain/release/retainCount/autorelease</li>
 <li>不能使用NSAllocateObject/NSDeallocateObject</li>
 <li>须遵守内存管理的方法命名规则</li>
@@ -318,8 +326,7 @@
 </tbody>
 </table>
 <h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><p>在分配内存时推荐使用calloc函数</p>
-<p>#####C. ARC的实现</p>
-<p>ARC由以下工具、库来说实现</p>
+<h5 id="C-ARC的实现"><a href="#C-ARC的实现" class="headerlink" title="C. ARC的实现"></a>C. ARC的实现</h5><p>ARC由以下工具、库来说实现</p>
 <ul>
 <li>clang (LLVM编译器）3.0以上</li>
 <li>objc4 Objective-C 运行时库 493.9以上</li>
