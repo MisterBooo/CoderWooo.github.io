@@ -132,6 +132,106 @@
       <div class="body-wrap">
         
   
+    <article id="post-多线程与内存管理读书摘录-Block篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/01/多线程与内存管理读书摘录-Block篇/">多线程与内存管理读书摘录(Block篇)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是Blocks"><a href="#什么是Blocks" class="headerlink" title="什么是Blocks"></a>什么是Blocks</h2><p> Blocks:带有自动变量（局部变量）的匿名函数，匿名函数就是不带有名称的函数。</p>
+<h3 id="Block语法"><a href="#Block语法" class="headerlink" title="Block语法"></a>Block语法</h3><p>1.没有函数名</p>
+<p>2.带有“^”</p>
+<p><code>^</code> <code>返回值类型</code> ``参数列表<figure class="highlight plain"><figcaption><span>表达式``</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">3.使用C语言数组时必须小心使用其指针</div></pre></td></tr></table></figure></p>
+<pre><code>const char text[] = &quot;hello&quot;;
+void (^blk2)(void ) = ^{
+    text[2];
+};
+//error:cannot refer to declaration with an array type inside block
+修改
+   const char *text = &quot;hello&quot;;
+</code></pre><p>```</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/01/多线程与内存管理读书摘录-Block篇/" class="archive-article-date">
+  	<time datetime="2017-04-01T01:43:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-01</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-模块化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/模块化/">模块化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/31/模块化/" class="archive-article-date">
+  	<time datetime="2017-03-31T08:37:08.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-31</time>
+</a>
+      
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-多线程与内存管理读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -236,8 +336,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="4-ARC规则"><a href="#4-ARC规则" class="headerlink" title="4.ARC规则"></a>4.ARC规则</h4><p>#####A.所有权修饰符</p>
-<ul>
+<h4 id="4-ARC规则"><a href="#4-ARC规则" class="headerlink" title="4.ARC规则"></a>4.ARC规则</h4><h5 id="A-所有权修饰符"><a href="#A-所有权修饰符" class="headerlink" title="A.所有权修饰符"></a>A.所有权修饰符</h5><ul>
 <li>__strong 修饰符</li>
 <li>__weak 修饰符</li>
 <li>__unsafe _unretained 修饰符</li>
@@ -352,9 +451,7 @@
 <li><p>使用附有__weak 修饰符的变量，即是使用注册到autoreleasepool中的对象</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  id __weak obj1 = obj;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* 编译器模拟代码*/</div><div class="line">id obj1;</div><div class="line">objc_initWeak(&amp;obj1,obj);</div><div class="line">objc_destoryWeak(&amp;obj1);</div><div class="line">*******</div><div class="line">obj1 = 0;</div><div class="line">objc_storeWeak(&amp;obj1,obj);</div><div class="line">*******</div></pre></td></tr></table></figure>
 <p><strong>objc_storeWeak 函数把第二参数的赋值对象的地址作为键值，将第一参数的附有__weak修饰符的变量的地址注册到weak表中。如果第二参数为 0，则把变量的地址从weak表中删除。weak表与引用计数表相同，作为散列表被实现。</strong></p>
-</li>
-</ul>
-<p>释放对象，程序的动作：<br>&gt;</p>
+<p>释放对象，程序的动作：</p>
 <ul>
 <li>objc_release</li>
 <li>引用计数为0，执行dealloc</li>
@@ -362,6 +459,8 @@
 <li>object_dispose</li>
 <li>objc_destructInstance</li>
 <li>objc_clear_deallocating</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p> objc _clear _deallocating的函数动作</p>

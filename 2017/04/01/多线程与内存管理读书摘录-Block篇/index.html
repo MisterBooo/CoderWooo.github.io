@@ -4,14 +4,42 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2017 | 我的博客</title>
+  <title>多线程与内存管理读书摘录(Block篇) | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="https://coderonepolo.github.io/archives/2017/index.html">
+  <meta name="description" content="什么是Blocks Blocks:带有自动变量（局部变量）的匿名函数，匿名函数就是不带有名称的函数。
+Block语法1.没有函数名
+2.带有“^”
+^ 返回值类型 ``参数列表表达式``123.使用C语言数组时必须小心使用其指针
+const char text[] = &amp;quot;hello&amp;quot;;
+void (^blk2)(void ) = ^{
+    text[2];
+};
+//err">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多线程与内存管理读书摘录(Block篇)">
+<meta property="og:url" content="https://coderonepolo.github.io/2017/04/01/多线程与内存管理读书摘录-Block篇/index.html">
 <meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="什么是Blocks Blocks:带有自动变量（局部变量）的匿名函数，匿名函数就是不带有名称的函数。
+Block语法1.没有函数名
+2.带有“^”
+^ 返回值类型 ``参数列表表达式``123.使用C语言数组时必须小心使用其指针
+const char text[] = &amp;quot;hello&amp;quot;;
+void (^blk2)(void ) = ^{
+    text[2];
+};
+//err">
+<meta property="og:updated_time" content="2017-04-01T10:25:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
+<meta name="twitter:title" content="多线程与内存管理读书摘录(Block篇)">
+<meta name="twitter:description" content="什么是Blocks Blocks:带有自动变量（局部变量）的匿名函数，匿名函数就是不带有名称的函数。
+Block语法1.没有函数名
+2.带有“^”
+^ 返回值类型 ``参数列表表达式``123.使用C语言数组时必须小心使用其指针
+const char text[] = &amp;quot;hello&amp;quot;;
+void (^blk2)(void ) = ^{
+    text[2];
+};
+//err">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -130,243 +158,90 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-多线程与内存管理读书摘录-Block篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      多线程与内存管理读书摘录(Block篇)
+    </h1>
   
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
+        <h2 id="什么是Blocks"><a href="#什么是Blocks" class="headerlink" title="什么是Blocks"></a>什么是Blocks</h2><p> Blocks:带有自动变量（局部变量）的匿名函数，匿名函数就是不带有名称的函数。</p>
+<h3 id="Block语法"><a href="#Block语法" class="headerlink" title="Block语法"></a>Block语法</h3><p>1.没有函数名</p>
+<p>2.带有“^”</p>
+<p><code>^</code> <code>返回值类型</code> ``参数列表<figure class="highlight plain"><figcaption><span>表达式``</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">3.使用C语言数组时必须小心使用其指针</div></pre></td></tr></table></figure></p>
+<pre><code>const char text[] = &quot;hello&quot;;
+void (^blk2)(void ) = ^{
+    text[2];
+};
+//error:cannot refer to declaration with an array type inside block
+修改
+   const char *text = &quot;hello&quot;;
+</code></pre><p>```</p>
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/01/多线程与内存管理读书摘录-Block篇/" class="archive-article-date">
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/01/多线程与内存管理读书摘录-Block篇/" class="archive-article-date">
   	<time datetime="2017-04-01T01:43:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/01/多线程与内存管理读书摘录-Block篇/">多线程与内存管理读书摘录(Block篇)</a>
-    </h1>
-  
+      
+      
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/31/模块化/" class="archive-article-date">
-  	<time datetime="2017-03-31T08:37:08.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/31/模块化/">模块化</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/31/模块化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">模块化</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/30/多线程与内存管理读书笔记/" class="archive-article-date">
-  	<time datetime="2017-03-30T08:37:56.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/30/多线程与内存管理读书笔记/">多线程与内存管理读书笔记</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/24/手把手教你封装一个面向对象的数据库-FMDB/" class="archive-article-date">
-  	<time datetime="2017-03-24T07:28:19.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/24/手把手教你封装一个面向对象的数据库-FMDB/">手把手教你封装一个面向对象的数据库(FMDB)</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/11/iOS零碎点/" class="archive-article-date">
-  	<time datetime="2017-03-11T02:29:13.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/11/iOS零碎点/">iOS零碎点</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/02/iOS面试题总结/" class="archive-article-date">
-  	<time datetime="2017-03-02T10:48:42.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/02/iOS面试题总结/">iOS面试题总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-面试/">iOS 面试</a></li></ul>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/24/Effective-Objective-C-2-0读书笔记/" class="archive-article-date">
-  	<time datetime="2017-02-24T02:29:31.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/Effective-Objective-C-2-0读书笔记/">Effective Objective-C 2.0读书笔记</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/24/vim操作命令/" class="archive-article-date">
-  	<time datetime="2017-02-24T02:01:12.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/vim操作命令/">vim操作命令</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
 
 
       </div>
@@ -389,8 +264,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

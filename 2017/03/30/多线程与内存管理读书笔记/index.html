@@ -62,7 +62,7 @@ retain
 
 释放对象
 release">
-<meta property="og:updated_time" content="2017-03-31T07:14:51.000Z">
+<meta property="og:updated_time" content="2017-03-31T07:21:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多线程与内存管理读书笔记">
 <meta name="twitter:description" content="一.内存管理的思考方式1.引用计数的思考方式：
@@ -313,8 +313,7 @@ release">
 </tr>
 </tbody>
 </table>
-<h4 id="4-ARC规则"><a href="#4-ARC规则" class="headerlink" title="4.ARC规则"></a>4.ARC规则</h4><p>#####A.所有权修饰符</p>
-<ul>
+<h4 id="4-ARC规则"><a href="#4-ARC规则" class="headerlink" title="4.ARC规则"></a>4.ARC规则</h4><h5 id="A-所有权修饰符"><a href="#A-所有权修饰符" class="headerlink" title="A.所有权修饰符"></a>A.所有权修饰符</h5><ul>
 <li>__strong 修饰符</li>
 <li>__weak 修饰符</li>
 <li>__unsafe _unretained 修饰符</li>
@@ -429,9 +428,7 @@ release">
 <li><p>使用附有__weak 修饰符的变量，即是使用注册到autoreleasepool中的对象</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  id __weak obj1 = obj;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* 编译器模拟代码*/</div><div class="line">id obj1;</div><div class="line">objc_initWeak(&amp;obj1,obj);</div><div class="line">objc_destoryWeak(&amp;obj1);</div><div class="line">*******</div><div class="line">obj1 = 0;</div><div class="line">objc_storeWeak(&amp;obj1,obj);</div><div class="line">*******</div></pre></td></tr></table></figure>
 <p><strong>objc_storeWeak 函数把第二参数的赋值对象的地址作为键值，将第一参数的附有__weak修饰符的变量的地址注册到weak表中。如果第二参数为 0，则把变量的地址从weak表中删除。weak表与引用计数表相同，作为散列表被实现。</strong></p>
-</li>
-</ul>
-<p>释放对象，程序的动作：<br>&gt;</p>
+<p>释放对象，程序的动作：</p>
 <ul>
 <li>objc_release</li>
 <li>引用计数为0，执行dealloc</li>
@@ -439,6 +436,8 @@ release">
 <li>object_dispose</li>
 <li>objc_destructInstance</li>
 <li>objc_clear_deallocating</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p> objc _clear _deallocating的函数动作</p>
@@ -472,6 +471,15 @@ release">
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/03/31/模块化/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          模块化
+        
+      </div>
+    </a>
   
   
     <a href="/2017/03/24/手把手教你封装一个面向对象的数据库-FMDB/" id="article-nav-older" class="article-nav-link-wrap">
