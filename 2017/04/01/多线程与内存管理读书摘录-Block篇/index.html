@@ -28,7 +28,7 @@ void (^blk2)(void ) = ^{
     text[2];
 };
 //err">
-<meta property="og:updated_time" content="2017-04-01T10:25:19.000Z">
+<meta property="og:updated_time" content="2017-04-05T09:22:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多线程与内存管理读书摘录(Block篇)">
 <meta name="twitter:description" content="什么是Blocks Blocks:带有自动变量（局部变量）的匿名函数，匿名函数就是不带有名称的函数。
@@ -187,7 +187,10 @@ void (^blk2)(void ) = ^{
 //error:cannot refer to declaration with an array type inside block
 修改
    const char *text = &quot;hello&quot;;
-</code></pre><p>```</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### Block的实现</div><div class="line">##### Block的本质</div></pre></td></tr></table></figure>
+<p>int main()<br>{<br>void (^blk)(void) = ^{printf(“Block\n”);};<br>blk();<br>return 0;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">clang -rewrite-objc 源代码文件名</div></pre></td></tr></table></figure></p>
+<p>变成以下形式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 
       
     </div>
