@@ -6,20 +6,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Jenkins+fastlane+KIF自动化测试总结 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Jenkins+fastlane+KIF自动化测试总结####简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告
-1. 安装fastlane1sudo gem install fastlane
+  <meta name="description" content="简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告1. 安装fastlane1sudo gem install fastlane
 安装好后 在xcodeproj文件同级目录下，执行
 1fastlane init
-按照提示输入app开发者账号密码">
+按照提示输入app开发者账号密码等信息 输入后账号密码消息会保存在钥匙串，下次只需要输入账号即可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins+fastlane+KIF自动化测试总结">
 <meta property="og:url" content="https://coderonepolo.github.io/2017/06/14/Jenkins-fastlane-KIF自动化测试总结/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="Jenkins+fastlane+KIF自动化测试总结####简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告
-1. 安装fastlane1sudo gem install fastlane
+<meta property="og:description" content="简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告1. 安装fastlane1sudo gem install fastlane
 安装好后 在xcodeproj文件同级目录下，执行
 1fastlane init
-按照提示输入app开发者账号密码">
+按照提示输入app开发者账号密码等信息 输入后账号密码消息会保存在钥匙串，下次只需要输入账号即可">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1fgkka80seuj30zi0k678b.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcgy1fgkkaa6ek1j31kw0hc760.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1fgkkck7l0mj31kw0ukakf.jpg">
@@ -27,14 +25,13 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1fgkka9380pj310i0f80u7.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1fgkka8y0q3j31kw0r40ww.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1fgkka8bugzj31kw0rydni.jpg">
-<meta property="og:updated_time" content="2017-06-14T03:23:36.000Z">
+<meta property="og:updated_time" content="2017-06-14T03:30:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins+fastlane+KIF自动化测试总结">
-<meta name="twitter:description" content="Jenkins+fastlane+KIF自动化测试总结####简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告
-1. 安装fastlane1sudo gem install fastlane
+<meta name="twitter:description" content="简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告1. 安装fastlane1sudo gem install fastlane
 安装好后 在xcodeproj文件同级目录下，执行
 1fastlane init
-按照提示输入app开发者账号密码">
+按照提示输入app开发者账号密码等信息 输入后账号密码消息会保存在钥匙串，下次只需要输入账号即可">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1fgkka80seuj30zi0k678b.jpg">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
@@ -172,8 +169,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Jenkins-fastlane-KIF自动化测试总结"><a href="#Jenkins-fastlane-KIF自动化测试总结" class="headerlink" title="Jenkins+fastlane+KIF自动化测试总结"></a>Jenkins+fastlane+KIF自动化测试总结</h1><p>####简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告</p>
-<h3 id="1-安装fastlane"><a href="#1-安装fastlane" class="headerlink" title="1. 安装fastlane"></a>1. 安装fastlane</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install fastlane</div></pre></td></tr></table></figure>
+        <h4 id="简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告"><a href="#简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告" class="headerlink" title="简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告"></a>简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告</h4><h3 id="1-安装fastlane"><a href="#1-安装fastlane" class="headerlink" title="1. 安装fastlane"></a>1. 安装fastlane</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install fastlane</div></pre></td></tr></table></figure>
 <p>安装好后 在xcodeproj文件同级目录下，执行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane init</div></pre></td></tr></table></figure>
 <p>按照提示输入app开发者账号密码等信息 <code>输入后账号密码消息会保存在钥匙串，下次只需要输入账号即可</code></p>

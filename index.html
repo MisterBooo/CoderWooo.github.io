@@ -150,8 +150,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Jenkins-fastlane-KIF自动化测试总结"><a href="#Jenkins-fastlane-KIF自动化测试总结" class="headerlink" title="Jenkins+fastlane+KIF自动化测试总结"></a>Jenkins+fastlane+KIF自动化测试总结</h1><p>####简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告</p>
-<h3 id="1-安装fastlane"><a href="#1-安装fastlane" class="headerlink" title="1. 安装fastlane"></a>1. 安装fastlane</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install fastlane</div></pre></td></tr></table></figure>
+        <h4 id="简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告"><a href="#简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告" class="headerlink" title="简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告"></a>简要：在Jenkins环境下使用脚本执行fastlane命令，可以实现代码每次push到远程仓库时，服务器后台自动构建测试并生成图表类测试报告</h4><h3 id="1-安装fastlane"><a href="#1-安装fastlane" class="headerlink" title="1. 安装fastlane"></a>1. 安装fastlane</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install fastlane</div></pre></td></tr></table></figure>
 <p>安装好后 在xcodeproj文件同级目录下，执行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastlane init</div></pre></td></tr></table></figure>
 <p>按照提示输入app开发者账号密码等信息 <code>输入后账号密码消息会保存在钥匙串，下次只需要输入账号即可</code></p>
